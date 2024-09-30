@@ -4,49 +4,111 @@ public class Matriser {
 
 	// a)
 	public static void skrivUt(int[][] matrise) {
-		
-		// TODO
-		throw new UnsupportedOperationException("Metoden skrivUt ikke implementert");
+
+		for (int[] rad : matrise) {
+			System.out.print("[");
+
+			for (int plass : rad) {
+
+				System.out.print(plass + ",");
+			}
+			System.out.print("] ");
+		}
+		System.out.println();
 	}
 
 	// b)
 	public static String tilStreng(int[][] matrise) {
-
-		// TODO
-		throw new UnsupportedOperationException("Metoden tilStreng ikke implementert");
-		
+		String a = "";
+		for (int[] rad : matrise) {
+			for (int plass : rad) {
+				a += plass + " ";
+			}
+			a += "\n";
+		}
+		System.out.println(a);
+		return a;
 	}
 
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
-		
-		// TODO
-		throw new UnsupportedOperationException("Metoden skaler ikke implementert");
-	
+
+		int[][] tab = new int[matrise.length][];
+
+		for (int r = 0; r < matrise.length; r++) {
+
+			tab[r] = new int[matrise[r].length];
+
+			for (int p = 0; p < matrise[r].length; p++) {
+				tab[r][p] = (matrise[r][p] * tall);
+
+			}
+
+		}
+		return tab;
+
 	}
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("Metoden erLik ikke implementert");
-		
+		if (b.length != a.length) {
+			System.out.println("a og b er ikkje like");
+			return false;
+		} else {
+			for (int r = 0; r < b.length; r++) {
+
+				for (int p = 0; p < a[r].length; p++) {
+
+					if (a[r].length != b[r].length) {
+						return false;
+					} else if (a[r][p] != b[r][p]) {
+						System.out.println("a og b er ikkje like");
+						return false;
+					}
+				}
+
+			}
+			System.out.println("a og b er like");
+			return true;
+
+		}
 	}
-	
+
 	// e)
 	public static int[][] speile(int[][] matrise) {
+		int[][] tab = new int[matrise.length][matrise[0].length];
 
-		// TODO
+		for (int r = 0; r < matrise.length; r++) {
 
-		throw new UnsupportedOperationException("Metoden speile ikke implementert");
-	
+			for (int p = 0; p < matrise.length; p++) {
+
+				tab[r][p] = matrise[p][r];
+
+			}
+		}
+
+		return tab;
+
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
+		int[][] tab = new int[a.length][b[0].length];
 
-		// TODO
-		throw new UnsupportedOperationException("Metoden multipliser ikke implementert");
+		
+			for (int i = 0; i < a.length; i++) {
+				
+				for (int j = 0; j < b[0].length; j++) {
+
+					for (int x = 0; x < b[0].length; x++) {
+						tab[i][j] += (a[i][x] * b[x][j]);
+					}
+				
+					
+				}
+			}
+		return tab;
+			}
+		}
 	
-	}
-}
