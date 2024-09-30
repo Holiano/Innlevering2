@@ -26,7 +26,6 @@ public class Matriser {
 			}
 			a += "\n";
 		}
-		System.out.println(a);
 		return a;
 	}
 
@@ -53,7 +52,6 @@ public class Matriser {
 	public static boolean erLik(int[][] a, int[][] b) {
 
 		if (b.length != a.length) {
-			System.out.println("a og b er ikkje like");
 			return false;
 		} else {
 			for (int r = 0; r < b.length; r++) {
@@ -63,13 +61,11 @@ public class Matriser {
 					if (a[r].length != b[r].length) {
 						return false;
 					} else if (a[r][p] != b[r][p]) {
-						System.out.println("a og b er ikkje like");
 						return false;
 					}
 				}
 
 			}
-			System.out.println("a og b er like");
 			return true;
 
 		}
