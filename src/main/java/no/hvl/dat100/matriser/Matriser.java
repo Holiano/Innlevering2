@@ -11,6 +11,17 @@ public class Matriser {
 	        }
 	        System.out.println();        
 	    }
+
+		for (int[] rad : matrise) {
+			System.out.print("[");
+
+			for (int plass : rad) {
+
+				System.out.print(plass + ",");
+			}
+			System.out.print("] ");
+		}
+		System.out.println();
 	}
 
 	// b)
@@ -30,43 +41,74 @@ public class Matriser {
 
 
 	// c)
-	public static int[][] skaler(int tall, int[][] matrise) {
-		
-		    int[][] resultat = new int[matrise.length][matrise[0].length];
-		    
-		    for (int i = 0; i < matrise.length; i++) {
-		        for (int j = 0; j < matrise[i].length; j++) {
-		            resultat[i][j] = matrise[i][j] * tall;
-		        }
-		    }
-		    
-		    return resultat;
-		}
+//	public static int[][] skaler(int tall, int[][] matrise) {
+//		
+//		    int[][] resultat = new int[matrise.length][matrise[0].length];
+//		    
+//		    for (int i = 0; i < matrise.length; i++) {
+//		        for (int j = 0; j < matrise[i].length; j++) {
+//		            resultat[i][j] = matrise[i][j] * tall;
+//		        }
+//		    }
+//		    
+//		    return resultat;
+//		}
 
+//		String a = "";
+//		for (int[] rad : matrise) {
+//			for (int plass : rad) {
+//				a += plass + " ";
+//			}
+//			a += "\n";
+//		}
+//		return a;
+//	}
+
+	// c)
+	public static int[][] skaler(int tall, int[][] matrise) {
+
+		int[][] tab = new int[matrise.length][];
+
+		for (int r = 0; r < matrise.length; r++) {
+
+			tab[r] = new int[matrise[r].length];
+
+			for (int p = 0; p < matrise[r].length; p++) {
+				tab[r][p] = (matrise[r][p] * tall);
+
+			}
+
+		}
+		return tab;
+
+	}
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
 
-		
-		    if (a.length != b.length || a[0].length != b[0].length) {
-		        return false;
-		    }
+		if (b.length != a.length) {
+			return false;
+		} else {
+			for (int r = 0; r < b.length; r++) {
 
-		    for (int i = 0; i < a.length; i++) {
-		        for (int j = 0; j < a[i].length; j++) {
-		            if (a[i][j] != b[i][j]) {
-		                return false;
-		            }
-		        }
-		    }
+				for (int p = 0; p < a[r].length; p++) {
 
-		    return true;
+					if (a[r].length != b[r].length) {
+						return false;
+					} else if (a[r][p] != b[r][p]) {
+						return false;
+					}
+				}
+
+			}
+			return true;
+
 		}
+	}
 
-	
 	// e)
 	public static int[][] speile(int[][] matrise) {
-
+		int[][] tab = new int[matrise.length][matrise[0].length];
 		
 		    int[][] speilet = new int[matrise[0].length][matrise.length];
 		    
@@ -81,20 +123,51 @@ public class Matriser {
 
 
 	// f)
-	public static int[][] multipliser(int[][] a, int[][] b) {
-		
-		    int[][] resultat = new int[a.length][b[0].length];
-		    
-		    for (int i = 0; i < a.length; i++) {
-		        for (int j = 0; j < b[0].length; j++) {
-		            for (int k = 0; k < a[0].length; k++) {
-		                resultat[i][j] += a[i][k] * b[k][j];
-		            }
-		        }
-		    }
-		    
-		    return resultat;
-		}
-}
+//	public static int[][] multipliser(int[][] a, int[][] b) {
+//		
+//		    int[][] resultat = new int[a.length][b[0].length];
+//		    
+//		    for (int i = 0; i < a.length; i++) {
+//		        for (int j = 0; j < b[0].length; j++) {
+//		            for (int k = 0; k < a[0].length; k++) {
+//		                resultat[i][j] += a[i][k] * b[k][j];
+//		            }
+//		        }
+//		    }
+//		    
+//		    return resultat;
+//		}
+//}
+//
+//		for (int r = 0; r < matrise.length; r++) {
+//
+//			for (int p = 0; p < matrise.length; p++) {
+//
+//				tab[r][p] = matrise[p][r];
+//
+//			}
+//		}
+//
+//		return tab;
+//
+//	}
 
-	
+	// f)
+	public static int[][] multipliser(int[][] a, int[][] b) {
+		int[][] tab = new int[a.length][b[0].length];
+
+		
+			for (int i = 0; i < a.length; i++) {
+				
+				for (int j = 0; j < b[0].length; j++) {
+
+					for (int x = 0; x < b[0].length; x++) {
+						tab[i][j] += (a[i][x] * b[x][j]);
+					}
+				
+					
+				}
+			}
+		return tab;
+			}
+		}
